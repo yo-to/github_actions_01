@@ -2,7 +2,7 @@ name: CI
 
 on:
   schedule:
-    - cron:  '20 * * * *'
+    - cron:  '42 * * * *'
 
 jobs:
   build:
@@ -10,8 +10,12 @@ jobs:
 
     steps:
     - name: Post webhook test
-      run: curl -X POST -H 'Content-Type:application/json' -d "{\"value1\":\"${TEXT01}\"}" "https://maker.ifttt.com/trigger/${EVENT}/with/key/${TOKEN}"
+      run: curl -X POST -H 'Content-Type:application/json'  \
+        -d "{\"value1\":\"${TEXT01}\", \"value2\":\"${TEXT02}\", \"value3\":\"${TEXT03}\"}" \ 
+        "https://maker.ifttt.com/trigger/${EVENT}/with/key/${TOKEN}"
       env:
         EVENT: ${{ secrets.WEBHOOK_EVENT }}
         TOKEN: ${{ secrets.WEBHOOK_TOKEN }}
         TEXT01: 1つ目
+        TEXT02: 2つ目
+        TEXT03: 3つ目
