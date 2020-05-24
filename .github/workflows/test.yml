@@ -2,7 +2,7 @@ name: CI
 
 on:
   schedule:
-    - cron:  '10 * * * *'
+    - cron:  '35 * * * *'
 
 jobs:
   build:
@@ -10,4 +10,4 @@ jobs:
 
     steps:
     - name: Post webhook test
-      run: curl -X POST -H "Content-Type: application/json" -d '{"value1":"1つ目"}' ${{ secrets.WEBHOOK_URL }}
+      run: curl -X POST -H 'Content-Type: application/json' -d '{"value1":"1つ目"}' ${{ secrets.WEBHOOK_URL }}
