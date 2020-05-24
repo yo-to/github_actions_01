@@ -1,1 +1,2 @@
-# github_actions_01
+## GitHub Actions で cron を実行してみる
+IFTTT の Webhook を毎時、特定のタイミングで実行してみる。
